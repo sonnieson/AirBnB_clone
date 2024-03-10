@@ -11,7 +11,7 @@ Clone the Repository: Begin by cloning this repository to your local machine usi
 
 bash
 Copy code
-git clone https://github.com/your_username/airbnb_clone.git
+git clone https://github.com/sonnieson/airbnb_clone.git
 Navigate to the Project Directory: Enter the project directory using the cd command:
 
 bash
@@ -54,4 +54,4 @@ License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 Acknowledgements
-Special thanks to [Your Name] for providing guidance and inspiration throughout the development of this project.
+Special thanks to Esther and Faith for providing guidance and inspiration throughout the development of this project.
