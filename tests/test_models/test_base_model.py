@@ -136,7 +136,7 @@ class TestBaseModel_save(unittest.TestCase):
                                           
                         
 
-   def test_save_updates_file(self):
+    def test_save_updates_file(self):
        bm = BaseModel()
        bm.save()
        bmid = "BaseModel." + bm.id

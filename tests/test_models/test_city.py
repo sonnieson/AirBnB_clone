@@ -61,7 +61,9 @@ class TestCity_instantiation(unittest.TestCase):
         sleep(0.05)
         cy2 = City()
         self.assertLess(cy1.updated_at, cy2.updated_at)
-                                                                                        def test_str_representation(self):                                                      dt = datetime.today()
+                                                                                    
+    def test_str_representation(self):
+        dt = datetime.today()
         dt_repr = repr(dt)
         cy = City()
         cy.id = "123456"

@@ -49,7 +49,6 @@ class TestUser_instantiation(unittest.TestCase):
         us2 = User()
         self.assertNotEqual(us1.id, us2.id)
 
-
     def test_two_users_different_created_at(self):
         us1 = User()
         sleep(0.05)
@@ -74,7 +73,7 @@ class TestUser_instantiation(unittest.TestCase):
         self.assertIn("'created_at': " + dt_repr, usstr)
         self.assertIn("'updated_at': " + dt_repr, usstr)
 
-    def test_args_unused(self)
+    def test_args_unused(self):
         us = User(None)
         self.assertNotIn(None, us.__dict__.values())
 
@@ -101,14 +100,11 @@ class TestUser_save(unittest.TestCase):
         except IOError:
             pass
 
-        
     def tearDown(self):
         try:
             os.remove("file.json")
-        
         except IOError:
             pass
-    
         try:
             os.rename("tmp", "file.json")
         except IOError:
@@ -121,29 +117,28 @@ class TestUser_save(unittest.TestCase):
         us.save()
         self.assertLess(first_updated_at, us.updated_at)
 
-   def test_two_saves(self):
-       us = User()
-       sleep(0.05)
-       first_updated_at = us.updated_at
-       us.save()
-       second_updated_at = us.updated_at
-       self.assertLess(first_updated_at, second_updated_at)
-       sleep(0.05)
-       us.save()
-       self.assertLess(second_updated_at, us.updated_at)
+    def test_two_saves(self):
+        us = User()
+        sleep(0.05)
+        first_updated_at = us.updated_at
+        us.save()
+        second_updated_at = us.updated_at
+        self.assertLess(first_updated_at, second_updated_at)
+        sleep(0.05)
+        us.save()
+        self.assertLess(second_updated_at, us.updated_at)
 
-   def test_save_with_arg(self):
-       us = User()
-       with self.assertRaises(TypeError):
-           us.save(None)
+    def test_save_with_arg(self):
+        us = User()
+        with self.assertRaises(TypeError):
+            us.save(None)
 
-        
-  def test_save_updates_file(self):
-      us = User()
-      us.save()
-      usid = "User." + us.id
-      with open("file.json", "r") as f:
-          self.assertIn(usid, f.read())
+    def test_save_updates_file(self):
+        us = User()
+        us.save()
+        usid = "User." + us.id
+        with open("file.json", "r") as f:
+            self.assertIn(usid, f.read())
 
 
 class TestUser_to_dict(unittest.TestCase):
@@ -159,7 +154,6 @@ class TestUser_to_dict(unittest.TestCase):
         self.assertIn("updated_at", us.to_dict())
         self.assertIn("__class__", us.to_dict())
 
-    
     def test_to_dict_contains_added_attributes(self):
         us = User()
         us.middle_name = "Holberton"
@@ -180,13 +174,13 @@ class TestUser_to_dict(unittest.TestCase):
         us.id = "123456"
         us.created_at = us.updated_at = dt
         tdict = {
-                'id': '123456',
-                '__class__': 'User',
-                'created_at': dt.isoformat(),                
-                'updated_at': dt.isoformat(),
-        }                                    
+            'id': '123456',
+            '__class__': 'User',
+            'created_at': dt.isoformat(),
+            'updated_at': dt.isoformat(),
+        }
         self.assertDictEqual(us.to_dict(), tdict)
-  
+
     def test_contrast_to_dict_dunder_dict(self):
         us = User()
         self.assertNotEqual(us.to_dict(), us.__dict__)
@@ -195,6 +189,7 @@ class TestUser_to_dict(unittest.TestCase):
         us = User()
         with self.assertRaises(TypeError):
             us.to_dict(None)
+
 
 if __name__ == "__main__":
     unittest.main()
