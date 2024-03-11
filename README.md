@@ -54,4 +54,4 @@ License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 Acknowledgements
-Special thanks to Esther and Faith for providing guidance and inspiration throughout the development of this project.
+Special thanks to Esther Mutiria and Faith Kimanthi for providing guidance and inspiration throughout the development of this project.
