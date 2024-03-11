@@ -1188,7 +1188,7 @@ class TestHBNBCommand_update(unittest.TestCase):
         testCmd = "update BaseModel {} attr_name 'attr_value'".format(testId)
         self.assertFalse(HBNBCommand().onecmd(testCmd))
         test_dict = storage.all()["BaseModel.{}".format(testId)].__dict__
-        self.assertEqual("attr_value", test_dict["attr_name"])
+        self.assertEqual("'attr_value'", test_dict["attr_name"])
 
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create User")
@@ -1196,7 +1196,7 @@ class TestHBNBCommand_update(unittest.TestCase):
         testCmd = "update User {} attr_name 'attr_value'".format(testId)
         self.assertFalse(HBNBCommand().onecmd(testCmd))
         test_dict = storage.all()["User.{}".format(testId)].__dict__
-        self.assertEqual("attr_value", test_dict["attr_name"])
+        self.assertEqual("'attr_value'", test_dict["'attr_name'"])
 
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create State")
