@@ -8,7 +8,7 @@ from datetime import datetime
 class BaseModel:
     """Represents the BaseModel of the HBnB project."""
 
-     def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
             """Initialize a new BaseModel.
 
             Args:
@@ -25,7 +25,7 @@ class BaseModel:
                         self.__dict__[k] = datetime.strptime(v, tform)
                     else:
                         self.__dict__[k] = v
-           else:
+            else:
                models.storage.new(self)
 
             
